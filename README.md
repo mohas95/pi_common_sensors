@@ -12,7 +12,7 @@ ___*Note:___ While this package provides multi-process control of the GPIO pins 
 python's garbage collection. For now refresh rate is by default set to 1 second to mitigate issue of jitter to a known scale, but we cannot guarantee performance if  refresh rate is set to 0.
 
 - Documentation: *Coming soon*
-- [Github](https://github.com/mohas95/pi_common)
+- [Github](https://github.com/mohas95/pi_common_sensors)
 
 ## Installation
 
