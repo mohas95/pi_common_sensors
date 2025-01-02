@@ -12,19 +12,19 @@ ___*Note:___ While this package provides multi-process control of the GPIO pins 
 python's garbage collection. For now refresh rate is by default set to 1 second to mitigate issue of jitter to a known scale, but we cannot guarantee performance if  refresh rate is set to 0.
 
 - Documentation: *Coming soon*
-- [Github](https://github.com/moha7108/RPi_control_center)
+- [Github](https://github.com/mohas95/pi_common)
 
 ## Installation
 
 - pip
 ```shell
-pip install RPI-control-center
+pip install pi_common_sensors
 ```
 - source
 ```shell
-git clone https://gitlab.com/moha7108/rpi-control-center.git
-cd rpi-control-center
-pip install -r requirements.txt
+git clone git@github.com:mohas95/pi_common_sensors.git
+cd pi_common_sensors
+pip install -r pip.txt
 ```
 
 ## Example Usage
@@ -32,7 +32,7 @@ pip install -r requirements.txt
 #### Controlling relays
 ```python
 import time
-from rpi_control_center import controls
+from pi_common_sensors import controls
 
 relay_config = {
         "relay1":{'pin':26, 'state':False, 'config':'no'},
@@ -71,7 +71,7 @@ except:
 #### USB Mass Storage Script
 ```python
 import time, os
-from rpi_control_center import rpi_usb
+from pi_common_sensors import rpi_usb
 
 storage_devices = rpi_usb.get_devices(True)
 print(storage_devices)
@@ -86,7 +86,7 @@ for dev in storage_devices:
 
 #### CSV Handling Script
 ```python
-from rpi_control_center.data import csv_handler
+from pi_common_sensors.data import csv_handler
 
 test_data = {'hello': 13, 'poop':'34013'}
 
@@ -102,7 +102,7 @@ print(test_csv.total_size)
 
 #### K30 CO2 Sensor (Serial)
 ```python
-from rpi_sensor_monitors import monitors
+from pi_common_sensors import monitors
 
 co2_sensor = monitors.K30_CO2(serial_device = "/dev/ttyS0", baudrate=9600, label='k30_CO2', api_dir='./api/', log_dir='./log/', refresh_rate=1)
 co2_sensor.start()
@@ -115,7 +115,7 @@ except:
 ```
 #### BME680 Sensor
 ```python
-from rpi_sensor_monitors import monitors
+from pi_common_sensors import monitors
 
 
 env_sensor = monitors.BME680()
@@ -141,16 +141,18 @@ env_sensor.stop()
 
 All kinds of feedback and contributions are welcome.
 
-- [Create an issue](https://github.com/moha7108/RPi_control_center/issues)
+- [Create an issue](https://github.com/mohas95/pi_common_sensors/issues)
 - Create a pull request
-- Reach out to @moha7108
+- Reach out to @mohas95
 
 ## Contributors
 
 - Mohamed Debbagh
-  - [GitLab](https://gitlab.com/moha7108/), [Github](https://github.com/moha7108/), [Twitter](https://twitter.com/moha7108)
+  - [Github](https://github.com/mohas95/)
 
 ## Change Log
+### 0.3.0
+
 ### 0.2.3
 - Move relay controlling to controls module and simplify code
 - K30 CO2 Sensor compatability
